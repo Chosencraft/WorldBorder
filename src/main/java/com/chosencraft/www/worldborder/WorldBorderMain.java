@@ -1,6 +1,7 @@
 package com.chosencraft.www.worldborder;
 
 import com.chosencraft.www.worldborder.commands.WorldBorder;
+import com.chosencraft.www.worldborder.utils.Utilities;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,10 +12,12 @@ public class WorldBorderMain extends JavaPlugin
     public void onEnable()
     {
         initalizeCommands();
+        Utilities.initializeBorders();
     }
 
     public void onDisable()
     {
+        Utilities.deInitializeBorders();
 
     }
 

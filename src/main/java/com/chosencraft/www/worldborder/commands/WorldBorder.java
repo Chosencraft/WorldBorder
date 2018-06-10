@@ -1,6 +1,5 @@
 package com.chosencraft.www.worldborder.commands;
 
-import com.chosencraft.www.worldborder.utils.Logger;
 import com.chosencraft.www.worldborder.utils.Permissions;
 import com.chosencraft.www.worldborder.utils.SettingsManager;
 import com.chosencraft.www.worldborder.utils.Utilities;
@@ -13,7 +12,6 @@ import org.bukkit.entity.Player;
 
 public class WorldBorder implements CommandExecutor
 {
-    private Logger log = Logger.getInstance();
     private SettingsManager data = SettingsManager.getData();
 
     private String prefix = ChatColor.GOLD + "[" + ChatColor.AQUA + "WorldBorder" + ChatColor.GOLD + "] ";
@@ -58,7 +56,14 @@ public class WorldBorder implements CommandExecutor
                         if (args.length >= 2)
                         {
                             int radius = Integer.parseInt(args[1]);
-                            setWorldBorder(player.getWorld(), radius);
+                            if (setWorldBorder(player.getWorld(), radius))
+                            {
+                                player.sendMessage("World Border has been set!");
+                            }
+                            else
+                            {
+                                player.sendMessage(prefix + "World Border could already exists!");
+                            }
                         }
                         else
                         {
@@ -99,15 +104,15 @@ public class WorldBorder implements CommandExecutor
     /**
      * Deletes the world border and removes it from the config
      */
-    public boolean deleteWorldorder(World world)
+    private boolean deleteWorldorder(World world)
     {
 
         String uuid = Utilities.stripHyphens(world.getUID());
         // sets config
         if ( data.contains(uuid))
         {
-            data.set( uuid , null );
-            // TODO:remove from world
+            data.set(uuid , null );
+            Utilities.removeBorder(world);
             return true;
         }
         else
@@ -132,8 +137,8 @@ public class WorldBorder implements CommandExecutor
         }
         else
         {
-            data.set( uuid , radius );
-            // TODO:add from world
+            data.set(uuid , radius );
+            Utilities.setBorder(world, radius);
             return true;
 
         }
@@ -144,7 +149,7 @@ public class WorldBorder implements CommandExecutor
      * Sends the Receiver the plugin help message
      * @param reciever Receiver of the help message
      */
-    public void helpMessage(Player reciever)
+    private void helpMessage(Player reciever)
     {
         reciever.sendMessage(ChatColor.AQUA + "==========" + ChatColor.GOLD + "[ World Border ]" + ChatColor.AQUA + "==========");
         reciever.sendMessage(ChatColor.GOLD + "/worldborder help             :" + ChatColor.AQUA + "displays this message");
