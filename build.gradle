@@ -4,7 +4,7 @@ plugins {
     id 'idea'
 }
 
-group 'WorldBorder'
+group 'WorldBorderMain'
 version '0.1-SNAPSHOT'
 
 sourceCompatibility = 1.8

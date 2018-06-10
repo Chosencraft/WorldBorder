@@ -1,4 +1,4 @@
-package com.chosen.www.worldborder.utils;
+package com.chosencraft.www.worldborder.utils;
 
 public class Permissions
 {
@@ -6,7 +6,8 @@ public class Permissions
 
     // Commands
     public static String CMD_WORLD_BORDER = plugin + "command.worldborder";
-
+    public static String CMD_WORLD_BORDER_SET = plugin + "command.worldborder.set";
+    public static String CMD_WORLD_BORDER_DELETE = plugin + "command.worldborder.delete";
     // Listeners
 
     //???THINGS???

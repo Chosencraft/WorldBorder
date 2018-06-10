@@ -1,10 +1,10 @@
-package com.chosen.www.worldborder.utils;
+package com.chosencraft.www.worldborder.utils;
 
 
 import java.io.File;
 import java.util.Set;
 
-import com.chosen.www.worldborder.WorldBorderMain;
+import com.chosencraft.www.worldborder.WorldBorderMain;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
