@@ -13,7 +13,7 @@ public class Logger
 
     private String logMessage =
             ChatColor.YELLOW + "[" +
-                    ChatColor.AQUA + "EventWorld" +
+                    ChatColor.AQUA + "WorldBorder" +
                     ChatColor.YELLOW + "]" +
                     ChatColor.RED +  " [%s]" +
                     ChatColor.AQUA  + " %s" +
