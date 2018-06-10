@@ -1,0 +1,9 @@
+name: WorldBorder
+version: 0.1
+description: Handles world border via a command and adds extra protections to them.
+author: Kiro47
+
+commands:
+  worldborder:
+    description: Main command for handling plugn
+    usage: /<command> [help,set,clear]
