@@ -4,7 +4,7 @@ package com.chosen.www.worldborder.utils;
 import java.io.File;
 import java.util.Set;
 
-import com.chosen.www.worldborder.WorldBorder;
+import com.chosen.www.worldborder.WorldBorderMain;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -28,11 +28,11 @@ public class SettingsManager
 
     private SettingsManager(String fileName)
     {
-        if (! WorldBorder.getThisPlugin().getDataFolder().exists()) {
-            WorldBorder.getThisPlugin().getDataFolder().mkdir();
+        if (! WorldBorderMain.getThisPlugin().getDataFolder().exists()) {
+            WorldBorderMain.getThisPlugin().getDataFolder().mkdir();
         }
 
-        file = new File(WorldBorder.getThisPlugin().getDataFolder(), fileName + ".yml");
+        file = new File(WorldBorderMain.getThisPlugin().getDataFolder(), fileName + ".yml");
 
         if (!file.exists()) {
             try {
