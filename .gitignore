@@ -1,3 +1,4 @@
+out/*
 .classpath
 .project
 /bin
@@ -9,4 +10,4 @@
 .idea/*
 .gradle/*
 build/
-
+.out/*

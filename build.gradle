@@ -6,6 +6,7 @@ plugins {
 
 group 'WorldBorderMain'
 version '0.1-SNAPSHOT'
+archivesBaseName = 'WorldBorder'
 
 sourceCompatibility = 1.8
 
@@ -17,6 +18,17 @@ repositories {
     mavenLocal() // This is needed for CraftBukkit and Spigot.
 }
 
+def CommonManifest = {
+    attributes 'Main-Class' :'com.chosencraft.www.worldborder.WorldBorderMain',
+    'Implementation-Title': 'WorldBorder',
+    'Implementation-Version': project.version,
+    'Build-With': 'Gradle v' + project.getGradle().getGradleVersion()
+}
+
+jar {
+    manifest CommonManifest
+    classifier 'bin'
+}
 
 
 
