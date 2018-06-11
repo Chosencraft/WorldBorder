@@ -10,6 +10,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 public class WorldBorder implements CommandExecutor
 {
     private SettingsManager data = SettingsManager.getData();
@@ -107,11 +109,11 @@ public class WorldBorder implements CommandExecutor
     private boolean deleteWorldorder(World world)
     {
 
-        String uuid = Utilities.stripHyphens(world.getUID());
+        UUID uuid = world.getUID();
         // sets config
-        if ( data.contains(uuid))
+        if ( data.contains(uuid.toString()))
         {
-            data.set(uuid , null );
+            data.set(uuid.toString() , null );
             Utilities.removeBorder(world);
             return true;
         }
@@ -128,16 +130,16 @@ public class WorldBorder implements CommandExecutor
      */
     private boolean setWorldBorder(World world, int radius)
     {
-        String uuid = Utilities.stripHyphens(world.getUID());
+        UUID uuid = world.getUID();
         // sets config
-        if ( data.contains(uuid))
+        if ( data.contains(uuid.toString()))
         {
             // world border already exists.
             return false;
         }
         else
         {
-            data.set(uuid , radius );
+            data.set(  uuid.toString() , radius );
             Utilities.setBorder(world, radius);
             return true;
 

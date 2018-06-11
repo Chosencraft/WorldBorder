@@ -16,12 +16,6 @@ public class Utilities
 
     private static SettingsManager data = SettingsManager.getData();
 
-    public static String stripHyphens(UUID uid)
-    {
-        return uid.toString().replace("-","");
-
-    }
-
     /**
      * Enforces the border on the world
      *
@@ -59,7 +53,7 @@ public class Utilities
             // In reality this is already a string, but for object enforcement we
             // still use toString(), thankfully you can toString() a string
             int radius = data.get(uuid.toString());
-            setBorder(Bukkit.getWorld(UUID.fromString(uuid.toString())), radius);
+            setBorder(Bukkit.getWorld( UUID.fromString(uuid.toString())), radius);
         }
     }
 
@@ -72,7 +66,7 @@ public class Utilities
         Set borders = data.getKeys();
         for (Object uuid : borders)
         {
-            removeBorder(Bukkit.getWorld(UUID.fromString(uuid.toString())));
+            removeBorder(Bukkit.getWorld( UUID.fromString(uuid.toString())));
         }
 
     }

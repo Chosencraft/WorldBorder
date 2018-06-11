@@ -45,6 +45,6 @@ public class WorldBorderMain extends JavaPlugin
      */
     public static Plugin getThisPlugin()
     {
-        return Bukkit.getPluginManager().getPlugin("WorldBorderMain");
+        return Bukkit.getPluginManager().getPlugin("WorldBorder");
     }
 }
