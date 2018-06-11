@@ -1,5 +1,6 @@
 name: WorldBorder
 version: 0.1
+main: com.chosencraft.www.worldborder.WorldBorderMain
 description: Handles world border via a command and adds extra protections to them.
 author: Kiro47
 
