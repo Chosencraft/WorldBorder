@@ -1,9 +1,11 @@
 package com.chosencraft.www.worldborder;
 
 import com.chosencraft.www.worldborder.commands.WorldBorder;
+import com.chosencraft.www.worldborder.listeners.EntityGuard;
 import com.chosencraft.www.worldborder.utils.Utilities;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class WorldBorderMain extends JavaPlugin
@@ -12,6 +14,7 @@ public class WorldBorderMain extends JavaPlugin
     public void onEnable()
     {
         initalizeCommands();
+        initializeListeners();
         Utilities.initializeBorders();
     }
 
@@ -27,6 +30,9 @@ public class WorldBorderMain extends JavaPlugin
      */
     private void initializeListeners()
     {
+        PluginManager manager = Bukkit.getServer().getPluginManager();
+
+        manager.registerEvents(new EntityGuard(), this);
 
     }
 
